@@ -8,34 +8,49 @@
   <link rel="stylesheet" type="text/css" href="skin-win7/ui.fancytree.css">
 </head>
 <body>
-<div id="tree"></div>
+
+<h1>extension: edit only</h1>
+<div id="tree1"></div>
+
+<h1>extension: edit+dnd</h1>
+<div id="tree2"></div>
 
 <script>
 $(function () {
+    var sources = [{
+        title: "Node 1", key: "1"
+    }, {
+        folder: true,
+        title: "Folder 2", key: "2",
+        children: [
+            {title: "Node 2.1", key: "3"},
+            {title: "Node 2.2", key: "4"}
+        ]
+    }];
+    var dnd_options = {
+        focusOnClick: true,
+        dragStart: function (sourceNode, data) { return true; },
+        dragEnter: function (targetNode, data) { return true; },
+        dragOver: function (targetNode, data) { return true; },
+        dragDrop: function (targetNode, data) {
+            data.otherNode.moveTo(targetNode, data.hitMode);
+        }
+    }
+  
+    $("#tree1").fancytree({
+        extensions: ["edit"],
+        edit: {},
+        dnd: dnd_options,
+        source: sources
+    });
 
-    $("#tree").fancytree({
+    $("#tree2").fancytree({
         extensions: ["edit", "dnd"],
         edit: {},
-        dnd: {
-            focusOnClick: true,
-            dragStart: function (sourceNode, data) { return true; },
-            dragEnter: function (targetNode, data) { return true; },
-            dragOver: function (targetNode, data) { return true; },
-            dragDrop: function (targetNode, data) {
-                data.otherNode.moveTo(targetNode, data.hitMode);
-            }
-        },
-        source: [{
-            title: "Node 1", key: "1"
-        }, {
-            folder: true,
-            title: "Folder 2", key: "2",
-            children: [
-                {title: "Node 2.1", key: "3"},
-                {title: "Node 2.2", key: "4"}
-            ]
-        }],
+        dnd: dnd_options,
+        source: sources
     });
+  
 });
 </script>
 
