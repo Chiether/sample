@@ -21,9 +21,10 @@
       $('#container1').highcharts({
         data: { table: document.getElementById('point') },
         title: {text: '貢献点'},
-        chart: { type: 'line' },
+        chart: { type: 'line', zoomType: 'x' },
         yAxis: { title: { text: '貢献点' } },
         tooltip: {
+          shared: true,
           pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: <b>{point.y}pt</b><br/>'
         },
         series: [
@@ -43,14 +44,15 @@
       $('#container2').highcharts({
         data: { table: document.getElementById('point_percent') },
         title: {text: '貢献支配率'},
-        chart: { type: 'line' },
+        chart: { type: 'line', zoomType: 'x' },
         yAxis: {
           allowDecimals: false,
           labels: {format: '{value}%' },
           title: { text: '獲得貢献点/全体貢献点' }
         },
         tooltip: {
-          pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: <b>{point.y:.3f}%</b><br/>',
+          shared: true,
+          pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: <b>{point.y:.3f}%</b><br/>'
         },
         series: [
           {color: 'red'},
@@ -75,8 +77,8 @@
           series: {stacking: 'normal'},
         },
         tooltip: {
-          pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: <b>{point.y}pt</b><br/>',
-          shared: true
+          shared: true,
+          pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: <b>{point.y}pt</b><br/>'
         },
         yAxis: {
           reversedStacks: false,
@@ -101,8 +103,8 @@
           bar: { dataLabels: { color: 'white', enabled: true } },
         },
         tooltip: {
-          pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: <b>{point.y}pt</b><br/>',
-          shared: true
+          shared: true,
+          pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: <b>{point.y}pt</b><br/>'
         },
         yAxis: {
           reversedStacks: false,
@@ -121,14 +123,14 @@
         data: { table: document.getElementById('score_cumulative2') },
         title: {text: '順位点'},
         subtitle: {text: '線グラフ(参考値として、勝利確定までのバーンダウン)'},
-        chart: { type: 'line' },
+        chart: { type: 'line', zoomType: 'x' },
         yAxis: {
           min: 0,
           title: { text: '順位点(累計)' },
         },
         tooltip: {
-          pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: <b>{point.y}pt</b><br/>',
-          shared: true
+          shared: true,
+          pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: <b>{point.y}pt</b><br/>'
         },
         series: [
           {color: 'red'},
