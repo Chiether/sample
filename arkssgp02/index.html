@@ -21,7 +21,7 @@
       $('#container1').highcharts({
         data: { table: document.getElementById('point') },
         title: {text: '貢献点'},
-        chart: { type: 'line', zoomType: 'x' },
+        chart: { type: 'line', zoomType: 'xy' },
         yAxis: { title: { text: '貢献点' } },
         tooltip: {
           shared: true,
@@ -44,7 +44,7 @@
       $('#container2').highcharts({
         data: { table: document.getElementById('point_percent') },
         title: {text: '貢献支配率'},
-        chart: { type: 'line', zoomType: 'x' },
+        chart: { type: 'line', zoomType: 'xy' },
         yAxis: {
           allowDecimals: false,
           labels: {format: '{value}%' },
@@ -123,7 +123,7 @@
         data: { table: document.getElementById('score_cumulative2') },
         title: {text: '順位点'},
         subtitle: {text: '線グラフ(参考値として、勝利確定までのバーンダウン)'},
-        chart: { type: 'line', zoomType: 'x' },
+        chart: { type: 'line', zoomType: 'xy' },
         yAxis: {
           min: 0,
           title: { text: '順位点(累計)' },
